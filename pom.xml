@@ -41,6 +41,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- Derby DB -->
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
