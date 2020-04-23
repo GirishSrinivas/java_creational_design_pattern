@@ -14,7 +14,7 @@ public class SingletonDemoApp {
         Connection conn = instance.getConnection();
         long timeAfter = System.currentTimeMillis();
 
-        System.out.println("Time: " +(timeAfter - timeBefore));
+        System.out.println("Time: " + (timeAfter - timeBefore));
 
         Statement sta;
         try {
@@ -31,6 +31,6 @@ public class SingletonDemoApp {
         instance.getConnection();
         timeAfter = System.currentTimeMillis();
 
-        System.out.println("Time: " +(timeAfter - timeBefore));
+        System.out.println("Time: " + (timeAfter - timeBefore));
     }
 }

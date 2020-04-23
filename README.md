@@ -21,3 +21,12 @@
           * Sometimes confused for *Factory Pattern*
           * NOTE: java.util.Calendar is NOT a Singleton
                 . It is a Prototype pattern
+
+### 2. Builder Pattern
+       A. Concept
+          * Handles complex constructors (Especially with large number of parameters)
+          * the objects are built to be immutable
+         
+       B. Design
+          * 
+       
