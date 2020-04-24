@@ -28,5 +28,27 @@
           * the objects are built to be immutable
          
        B. Design
-          * 
+          * use of inner static class
+          
+### 3. Prototype Pattern
+       A. Concept
+          * used create a clone of an object (produce unique instance of the same object)
+          * avoids costly creation
+          * avoids subclassing
+          * Typically does not use "new" (only First instance uses "new" keyword, and the rest of them are just cloned)
+          * often utilizes an Interface
+          * usually implemented with a registry
+          
+       B. Design
+          * implements Clone / Clonable interface
+          * avoids keyword "new"
+          * even though instances are a clones, all of them are unique.
+          * costly construction is not handled by the client
+          * we can choose Shallow Vs Deep Copy
+          
+       C. Pitfalls
+          * Not clear when to use
+          * used with other patterns
+            . Registry
+          * Shallow Vs Deep copy
        
