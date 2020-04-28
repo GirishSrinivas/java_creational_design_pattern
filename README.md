@@ -51,4 +51,36 @@
           * used with other patterns
             . Registry
           * Shallow Vs Deep copy
+          
+### 4. Factory Pattern
+       A. Concept
+          * Does not expose instantiation logic
+          * Defer to subclasses
+          * specified by architecture, implemented by user
+          
+       B. Design
+          * Factory is responsible for lifecycle
+          * common interfaces provides the rules
+          * concrete classes implements the rules of the interfaces
+          
+       C. Pitfalls
+          * it is complex
+          * creation of object instance takes place in the subclass
+          * if needs implementation, it has to designed from ground-up
+          
+### 5. Abstract Factory Pattern
+       A. Concept
+          * It is a Factory of factories
+            . Factory of related objects
+          * It has common interfaces
+          * Deffers the instantiations to Subclasses
+       B. Design
+          * Factory is responsible for lifecycle
+          * Common Interface is used in the design
+          * concrete classes is used to instantiate instances
+          * built using composition
+       C. Pitfalls     
+          * complexity in design
+          * It contains patterns within a pattern
+            . It starts as a Factory and can be refactors as Abstract Factory
        
