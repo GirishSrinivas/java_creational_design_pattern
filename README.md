@@ -29,6 +29,14 @@
          
        B. Design
           * use of inner static class
+
+       C. Problem Statement
+          * Create a Person object with instance fields & create the object using builder pattern.
+            . Name -> should contain First name, middle name & last name
+            . Address -> should contain addressline1, addressline2, city, state, zipcode & country
+            . Phone Number -> should contain country code, area code, exchange code & line number
+            . Date of birth -> Date type
+            . Email -> Sting type
           
 ### 3. Prototype Pattern
        A. Concept
