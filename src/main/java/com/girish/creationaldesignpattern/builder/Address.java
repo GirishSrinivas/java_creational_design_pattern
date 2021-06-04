@@ -3,14 +3,12 @@ package com.girish.creationaldesignpattern.builder;
 import java.io.Serializable;
 
 public class Address implements Serializable {
-    private String addressLine1;
-    private String addressLine2;
-    private String city;
-    private String state;
-    private String zipcode;
-    private String country;
-
-    public Address() {}
+    private final String addressLine1;
+    private final String addressLine2;
+    private final String city;
+    private final String state;
+    private final String zipcode;
+    private final String country;
 
     public Address(AddressBuilder addressBuilder) {
         this.addressLine1 = addressBuilder.addressLine1;
@@ -64,19 +62,16 @@ public class Address implements Serializable {
         private String state;
         private String zipcode;
         private String country;
-        private Person1.Person1Builder person1Builder;
+        private final Person1.Person1Builder person1Builder;
 
-        public AddressBuilder() {
+        public AddressBuilder(Person1.Person1Builder person1Builder) {
+            this.person1Builder = person1Builder;
             this.addressLine1 = "";
             this.addressLine2 = "";
             this.city = "";
             this.state = "";
             this.zipcode = "";
             this.country = "";
-        }
-
-        public AddressBuilder(Person1.Person1Builder person1Builder) {
-            this.person1Builder = person1Builder;
         }
 
         public Address build() {

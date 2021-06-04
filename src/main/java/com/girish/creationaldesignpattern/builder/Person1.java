@@ -52,18 +52,6 @@ public class Person1 implements Serializable {
 
         public Person1Builder() {}
 
-        public Person1Builder(Name.NameBuilder nameBuilder) {
-            this.nameBuilder = nameBuilder;
-        }
-
-        public Person1Builder(Address.AddressBuilder addressBuilder) {
-            this.addressBuilder = addressBuilder;
-        }
-
-        public Person1Builder(PhoneNumber.PhoneNumberBuilder phoneNumberBuilder) {
-            this.phoneNumberBuilder = phoneNumberBuilder;
-        }
-
         public Person1 build() {
             Person1 person1 = new Person1();
             person1.name = this.nameBuilder.build();
@@ -90,7 +78,7 @@ public class Person1 implements Serializable {
         }
 
         public Person1Builder withDateOfBirth(String date) throws ParseException {
-            this.dateOfBirth = new SimpleDateFormat("mm-dd-yyyy").parse(date);
+            this.dateOfBirth = new SimpleDateFormat("MM-dd-yyyy").parse(date);
             return this;
         }
 

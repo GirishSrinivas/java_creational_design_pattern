@@ -1,12 +1,10 @@
 package com.girish.creationaldesignpattern.builder;
 
 public class PhoneNumber {
-    private Integer countryCode;
-    private Integer areaCode;
-    private Integer exchangeCode;
-    private Integer lineNumber;
-
-    public PhoneNumber() {}
+    private final Integer countryCode;
+    private final Integer areaCode;
+    private final Integer exchangeCode;
+    private final Integer lineNumber;
 
     public PhoneNumber(PhoneNumberBuilder phoneNumberBuilder) {
         this.countryCode = phoneNumberBuilder.countryCode;
@@ -46,9 +44,7 @@ public class PhoneNumber {
         private Integer areaCode;
         private Integer exchangeCode;
         private Integer lineNumber;
-        private Person1.Person1Builder person1Builder;
-
-        public PhoneNumberBuilder() {}
+        private final Person1.Person1Builder person1Builder;
 
         public PhoneNumberBuilder(Person1.Person1Builder person1Builder) {
             this.person1Builder = person1Builder;

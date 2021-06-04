@@ -3,11 +3,9 @@ package com.girish.creationaldesignpattern.builder;
 import java.io.Serializable;
 
 public class Name implements Serializable {
-    private String firstName;
-    private String middleName;
-    private String lastName;
-
-    public Name() {}
+    private final String firstName;
+    private final String middleName;
+    private final String lastName;
 
     public Name(NameBuilder nameBuilder) {
         this.firstName = nameBuilder.firstName;
@@ -40,16 +38,13 @@ public class Name implements Serializable {
         private String firstName;
         private String middleName;
         private String lastName;
-        private Person1.Person1Builder person1Builder;
-
-        public NameBuilder() {
-            this.firstName = "";
-            this.lastName = "";
-            this.middleName = "";
-        }
+        private final Person1.Person1Builder person1Builder;
 
         public NameBuilder(Person1.Person1Builder person1Builder) {
             this.person1Builder = person1Builder;
+            this.firstName = "";
+            this.middleName = "";
+            this.lastName = "";
         }
 
         public Name build() {
