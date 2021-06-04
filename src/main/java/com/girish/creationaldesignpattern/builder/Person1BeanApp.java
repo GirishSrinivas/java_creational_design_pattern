@@ -4,6 +4,7 @@ import java.text.ParseException;
 
 public class Person1BeanApp {
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         try {
             Person1 person = new Person1.Person1Builder()
                             .withName()
@@ -27,9 +28,30 @@ public class Person1BeanApp {
                             .withDateOfBirth("01-18-1991")
                             .withEmail("girish.s.srinivas@gmail.com")
                             .build();
+            System.out.println("Person Object...");
             System.out.println(person);
+            System.out.println();
+
+            System.out.println("Name Object");
+            System.out.println(person.getName());
+            System.out.println();
+
+            System.out.println("Address Object...");
+            System.out.println(person.getAddress());
+            System.out.println();
+
+            System.out.println("Phone Number Object");
+            System.out.println(person.getPhoneNumber());
+            System.out.println();
+
+            System.out.println("Date of Birth: " +person.getDateOfBirth());
+            System.out.println("Email: " + person.getEmail());
+            System.out.println();
+
         } catch (ParseException e) {
             e.printStackTrace();
+        } finally {
+            System.out.println("Time taken to execute: " + (System.currentTimeMillis() - start) + " ms.");
         }
 
     }

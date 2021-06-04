@@ -49,8 +49,12 @@ public class Person1 implements Serializable {
         private Address.AddressBuilder addressBuilder;
         private PhoneNumber.PhoneNumberBuilder phoneNumberBuilder;
         private String email;
+        private static final String DATE_FORMAT = "MM-dd-yyyy";
 
-        public Person1Builder() {}
+        public Person1Builder() throws ParseException {
+            this.dateOfBirth = new SimpleDateFormat(DATE_FORMAT).parse("01-01-0001");
+            this.email = "";
+        }
 
         public Person1 build() {
             Person1 person1 = new Person1();
@@ -78,7 +82,7 @@ public class Person1 implements Serializable {
         }
 
         public Person1Builder withDateOfBirth(String date) throws ParseException {
-            this.dateOfBirth = new SimpleDateFormat("MM-dd-yyyy").parse(date);
+            this.dateOfBirth = new SimpleDateFormat(DATE_FORMAT).parse(date);
             return this;
         }
 
