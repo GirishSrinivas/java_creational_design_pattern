@@ -1,8 +1,13 @@
-package com.girish.creationaldesignpattern.builder;
+package com.girish.creationaldesignpattern.builder.Person;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 import java.io.Serializable;
 
+@JsonDeserialize(builder = Address.AddressBuilder.class)
 public class Address implements Serializable {
+    private static final long serialVersionUID = -6577719205266630105L;
     private final String addressLine1;
     private final String addressLine2;
     private final String city;
@@ -10,7 +15,7 @@ public class Address implements Serializable {
     private final String zipcode;
     private final String country;
 
-    public Address(AddressBuilder addressBuilder) {
+    private Address(AddressBuilder addressBuilder) {
         this.addressLine1 = addressBuilder.addressLine1;
         this.addressLine2 = addressBuilder.addressLine2;
         this.city = addressBuilder.city;
@@ -55,6 +60,7 @@ public class Address implements Serializable {
                 '}';
     }
 
+    @JsonPOJOBuilder
     public static class AddressBuilder {
         private String addressLine1;
         private String addressLine2;
@@ -62,7 +68,9 @@ public class Address implements Serializable {
         private String state;
         private String zipcode;
         private String country;
-        private final Person1.Person1Builder person1Builder;
+        private Person1.Person1Builder person1Builder;
+
+        public AddressBuilder() {}
 
         public AddressBuilder(Person1.Person1Builder person1Builder) {
             this.person1Builder = person1Builder;

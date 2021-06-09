@@ -42,6 +42,11 @@
             </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
         <!-- Derby DB -->
         <dependency>
             <groupId>org.apache.derby</groupId>

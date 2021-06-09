@@ -1,12 +1,19 @@
-package com.girish.creationaldesignpattern.builder;
+package com.girish.creationaldesignpattern.builder.Person;
 
-public class PhoneNumber {
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+
+import java.io.Serializable;
+
+@JsonDeserialize(builder = PhoneNumber.PhoneNumberBuilder.class)
+public class PhoneNumber implements Serializable {
+    private static final long serialVersionUID = -6297244872348749076L;
     private final Integer countryCode;
     private final Integer areaCode;
     private final Integer exchangeCode;
     private final Integer lineNumber;
 
-    public PhoneNumber(PhoneNumberBuilder phoneNumberBuilder) {
+    private PhoneNumber(PhoneNumberBuilder phoneNumberBuilder) {
         this.countryCode = phoneNumberBuilder.countryCode;
         this.areaCode = phoneNumberBuilder.areaCode;
         this.exchangeCode = phoneNumberBuilder.exchangeCode;
@@ -39,12 +46,15 @@ public class PhoneNumber {
                 '}';
     }
 
+    @JsonPOJOBuilder
     public static class PhoneNumberBuilder {
         private Integer countryCode;
         private Integer areaCode;
         private Integer exchangeCode;
         private Integer lineNumber;
-        private final Person1.Person1Builder person1Builder;
+        private Person1.Person1Builder person1Builder;
+
+        public PhoneNumberBuilder() {}
 
         public PhoneNumberBuilder(Person1.Person1Builder person1Builder) {
             this.person1Builder = person1Builder;

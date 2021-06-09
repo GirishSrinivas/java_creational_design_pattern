@@ -1,13 +1,18 @@
-package com.girish.creationaldesignpattern.builder;
+package com.girish.creationaldesignpattern.builder.Person;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 import java.io.Serializable;
 
+@JsonDeserialize(builder = Name.NameBuilder.class)
 public class Name implements Serializable {
+    private static final long serialVersionUID = 3282779056068827843L;
     private final String firstName;
     private final String middleName;
     private final String lastName;
 
-    public Name(NameBuilder nameBuilder) {
+    private Name(NameBuilder nameBuilder) {
         this.firstName = nameBuilder.firstName;
         this.middleName = nameBuilder.middleName;
         this.lastName = nameBuilder.lastName;
@@ -34,11 +39,12 @@ public class Name implements Serializable {
                 '}';
     }
 
+    @JsonPOJOBuilder
     public static class NameBuilder {
         private String firstName;
         private String middleName;
         private String lastName;
-        private final Person1.Person1Builder person1Builder;
+        private Person1.Person1Builder person1Builder;
 
         public NameBuilder(Person1.Person1Builder person1Builder) {
             this.person1Builder = person1Builder;
@@ -46,6 +52,8 @@ public class Name implements Serializable {
             this.middleName = "";
             this.lastName = "";
         }
+
+        public NameBuilder() {}
 
         public Name build() {
              return new Name(this);

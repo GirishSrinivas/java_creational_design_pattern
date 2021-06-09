@@ -1,4 +1,7 @@
-package com.girish.creationaldesignpattern.builder;
+package com.girish.creationaldesignpattern.builder.Person;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.text.ParseException;
 
@@ -7,11 +10,11 @@ public class Person1BeanApp {
         long start = System.currentTimeMillis();
         try {
             Person1 person = new Person1.Person1Builder()
-                            .withName()
+                            .addName()
                                 .withFirstName("Girish")
                                 .withLastName("Srinivas")
                                 .nameBuild()
-                            .withAddressBuilder()
+                            .addAddressBuilder()
                                 .withAddressLine1("11322 Franklin Plz")
                                 .withAddressLine2("Apt 920")
                                 .withCity("Omaha")
@@ -19,7 +22,7 @@ public class Person1BeanApp {
                                 .withZipcode("68154")
                                 .withCountry("US")
                                 .addressBuild()
-                            .withPhoneNumber()
+                            .addPhoneNumber()
                                 .withCountryCode(1)
                                 .withAreaCode(402)
                                 .withExchangeCode(973)
@@ -27,7 +30,7 @@ public class Person1BeanApp {
                                 .phoneNumberBuild()
                             .withDateOfBirth("01-18-1991")
                             .withEmail("girish.s.srinivas@gmail.com")
-                            .build();
+                            .buildPerson();
             System.out.println("Person Object...");
             System.out.println(person);
             System.out.println();
@@ -48,7 +51,11 @@ public class Person1BeanApp {
             System.out.println("Email: " + person.getEmail());
             System.out.println();
 
-        } catch (ParseException e) {
+            ObjectMapper mapper = new ObjectMapper();
+            String json = mapper.writeValueAsString(person);
+            System.out.println(json);
+
+        } catch (ParseException | JsonProcessingException e) {
             e.printStackTrace();
         } finally {
             System.out.println("Time taken to execute: " + (System.currentTimeMillis() - start) + " ms.");
